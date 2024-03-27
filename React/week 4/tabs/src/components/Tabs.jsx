@@ -5,7 +5,9 @@ const Tabs = props => {
     const [selectedIdx, setSelectedIdx] = useState(0);
 
     return ( 
-        <div style = {{ display: 'flex', flexWrap: 'wrap' }} > {
+        <div style = {
+            { display: 'flex', flexWrap: 'wrap' }
+        } > {
             tab_list.map((item, i) => {
                 const tab_style = {
                     width: '300px',
@@ -20,19 +22,24 @@ const Tabs = props => {
                 }
 
                 return ( 
-                    <div key = { i } onClick = {e => {setSelectedIdx(i);
-                        tab_list[i].callback();
+                    <div key = { i }
+                    onClick = {
+                        e => {
+                            setSelectedIdx(i);
+                            tab_list[i].callback();
                         }
-                        }
-                        style = { tab_style } > { item.tab_name } 
+                    }
+                    style = { tab_style } > { item.tab_name } 
                     </div>
                 )
             })
         }
 
-            <div style = {{ width: '940px', border: '1px solid black', margin: '4px', padding: '4px' }} > { tab_list[selectedIdx].tab_content } </div> 
-            
-        </div >
+        <div style = {
+            { width: '940px', border: '1px solid black', margin: '4px', padding: '4px' }
+        } > { tab_list[selectedIdx].tab_content } </div> 
+
+        </div>
     )
 }
 
